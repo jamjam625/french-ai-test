@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Rédaction Française – Beta Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    h1, h3 {
+      color: #2c3e50;
+    }
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    .feedback {
+      margin-top: 20px;
+      background-color: #ecf0f1;
+      padding: 15px;
+      border-left: 4px solid #2ecc71;
+      white-space: pre-wrap;
+    }
+    a {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🇫🇷 AI 프랑스어 작문 피드백 – 베타 체험</h1>
+  <p>당신의 프랑스어 글쓰기를 AI가 피드백합니다. 지금 DELF B2 수준의 작문을 연습해보세요!</p>
+
+  <h3>📘 오늘의 주제</h3>
+  <p><strong>Une guerre peut-elle être justifiée ?</strong></p>
+  <p>형식: Essai argumentatif · 분량: 약 150~200 mots</p>
+
+  <h3>✍️ 작문 입력</h3>
+  <textarea id="essayInput" rows="10" placeholder="여기에 프랑스어로 글을 입력하세요..."></textarea>
+  <br>
+  <button onclick="simulateFeedback()">AI 피드백 받기</button>
+
+  <div class="feedback" id="feedbackArea" style="display:none;"></div>
+
+  <h3>📩 설문 참여</h3>
+  <p>체험을 마친 후 아래 링크를 클릭해 간단한 피드백 설문을 작성해주세요.</p>
+  <a href="https://forms.gle/exempleFormulaire" target="_blank">👉 설문지 작성하러 가기</a>
+
+  <script>
+    function simulateFeedback() {
+      const essay = document.getElementById("essayInput").value;
+      const feedbackBox = document.getElementById("feedbackArea");
+      if (!essay || essay.length < 30) {
+        feedbackBox.style.display = "block";
+        feedbackBox.innerText = "✋ 작문을 충분히 입력해주세요. (최소 30자)";
+        return;
+      }
+      // GPT 연결 전 시뮬레이션용
+      feedbackBox.style.display = "block";
+      feedbackBox.innerText = "✅ AI 피드백 (예시):\n\n" +
+        "- 구조는 대체로 논리적이나, 결론이 약하게 마무리됨\n" +
+        "- Connecteurs logiques 부족: cependant, en revanche, donc\n" +
+        "- 표현력 우수 (ex: 'figure paroxystique du mal')\n\n" +
+        "👉 추천 학습: connecteurs logiques, vocabulaire nuancé\n";
+    }
+  </script>
+
+</body>
+</html>
